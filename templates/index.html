@@ -9,6 +9,7 @@
 <body>
     <header>
         <h1>FLASKFEED</h1>
+        <a href="{{ url_for('add') }}"><button>ADD POST</button></a>
     </header>
     {% for post in posts %}
     <div class="post">
