@@ -1,0 +1,47 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "JetBrains Mono", sans-serif;
+    background-color: #222222;
+    padding: 20px;
+    color: #ffffff;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 150px;
+    width: 50vw;
+    min-width: 800px;
+}
+
+header h1 {
+    color: mediumspringgreen;
+    /* text-shadow:
+          0 0 10px rgba(0, 255, 162, 0.4);
+        animation: glow 2s ease-in-out infinite;*/
+
+}
+
+.post {
+    width: 50vw;
+    min-width: 800px;
+    background: linear-gradient(75deg , #292929 35%, mediumspringgreen 1000%) fixed;
+    border: 0 solid mediumspringgreen;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.post h2 {
+    margin-top: 0;
+    color: mediumspringgreen;
+}
+
+.post p {
+    margin: 10px 0;
+}
