@@ -20,7 +20,9 @@
             <h2>{{ post['title'] }}</h2>
             <div class="post-ui">
                 <form action="{{ url_for('like', post_id=post['id']) }}" method="post">
-                    <button>{{ post['likes'] }}</button>
+                    {% if post.get('likes', 0) > 0 %}
+                        <button>{{ post['likes'] }}</button>
+                    {% endif %}
                     <button type="submit"><span class="material-symbols-outlined">thumb_up</span></button>
                 </form>
                 <form action="{{ url_for('update', post_id=post['id']) }}" method="get">
