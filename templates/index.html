@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FLASKFEED</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=add,delete" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=add,delete,edit" />
 </head>
 <body>
     <header>
@@ -16,15 +16,20 @@
     </header>
     {% for post in posts %}
     <div class="post">
-        <div class="post-content">
+        <div class="post-header">
             <h2>{{ post['title'] }}</h2>
+            <div class="post-ui">
+                <form action="{{ url_for('update', post_id=post['id']) }}" method="get">
+                    <button type="submit"><span class="material-symbols-outlined">edit</span></button>
+                </form>
+                <form action="{{ url_for('delete', post_id=post['id']) }}" method="get">
+                    <button type="submit" id="trash-btn"><span class="material-symbols-outlined">delete</span></button>
+                </form>
+            </div>
+        </div>
+        <div class="post-content">
             <p><em>Written by {{ post['author'] }}</em></p>
             <p>{{ post['content'] }}</p>
-        </div>
-        <div class="post-ui">
-            <form action="{{ url_for('delete', post_id=post['id']) }}" method="get">
-                <button type="submit"><span class="material-symbols-outlined">delete</span></button>
-            </form>
         </div>
     </div>
     {% endfor %}

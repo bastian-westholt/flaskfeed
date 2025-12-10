@@ -2,31 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ADD POST</title>
+    <title>UPDATE POST</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <header class="form-header">
-        <h1>ADD POST</h1>
+        <h1>UPDATE POST</h1>
         <a href="{{ url_for('index') }}"><button>BACK</button></a>
     </header>
-    <form action="/add" method="post">
+    <form action="{{ url_for('update', post_id=post['id']) }}" method="POST">
         <div class="form-container">
             <div class="form-element">
                 <label for="author">Author:<br></label>
-                <input type="text" id="author" name="author">
+                <input type="text" id="author" name="author" value="{{ post['author'] }}">
                 <br><br>
             </div>
             <div class="form-element">
                 <label for="title">Title:<br></label>
-                <input type="text" id="title" name="title">
+                <input type="text" id="title" name="title" value="{{ post['title'] }}">
                 <br><br>
             </div>
         </div>
         <label for="content">Content:<br></label>
-        <textarea id="content" name="content"></textarea>
+        <textarea id="content" name="content">{{ post['content'] }}</textarea>
         <br><br>
-        <input type="submit" value="SUBMIT">
+        <input type="submit" value="UPDATE">
     </form>
 </body>
 </html>

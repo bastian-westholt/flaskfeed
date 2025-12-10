@@ -37,5 +37,30 @@ def delete(post_id):
 
     return f'Post with that id: {post_id}, do not exist.'
 
+def fetch_post_by_id(post_id):
+    for post in blog_posts:
+        if post['id'] == post_id:
+            return post
+    return None
+
+@app.route('/update/<int:post_id>', methods=['GET', 'POST'])
+def update(post_id):
+    current_post = fetch_post_by_id(post_id)
+
+    if current_post is None:
+        return "Post not found", 404
+
+    if request.method == 'POST':
+        current_post['author'] = request.form.get('author')
+        current_post['title'] = request.form.get('title')
+        current_post['content'] = request.form.get('content')
+
+        with open('data/storage.json', 'w') as writer:
+            writer.write(json.dumps(blog_posts))
+
+        return redirect(url_for('index'))
+
+    return  render_template('update.html', post=current_post)
+
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5001, debug=True)
