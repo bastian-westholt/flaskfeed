@@ -198,4 +198,37 @@ input[type=submit]:hover {
     transition: background-color 0.3s;
 }
 
-/**/
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 768px) {
+    .form-container {
+        flex-direction: column;
+    }
+
+    .form-element {
+        width: 100%;
+    }
+
+    form {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    header h1, .form-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .post {
+        padding: 15px;
+    }
+
+    input[type=text], textarea#content, input[type=submit] {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+}
