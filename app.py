@@ -62,5 +62,20 @@ def update(post_id):
 
     return  render_template('update.html', post=current_post)
 
+@app.route('/like/<int:post_id>', methods=['POST'])
+def like(post_id):
+    current_post = fetch_post_by_id(post_id)
+
+    if request.method == 'POST':
+        current_post['likes'] += 1
+
+        with open('data/storage.json', 'w') as writer:
+            writer.write(json.dumps(blog_posts))
+
+        return redirect(url_for('index'))
+
+    return render_template('index.html', post=current_post)
+
+
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5001, debug=True)

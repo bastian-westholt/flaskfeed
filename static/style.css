@@ -106,11 +106,17 @@ div.post-ui {
     width: 100%;
     overflow: scroll;
     background: linear-gradient(75deg , #292929 35%, mediumspringgreen 1000%) fixed;
-    border: 0 solid mediumspringgreen;
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 8px;
 }
+
+/*
+.post:hover {
+    border-left: 3px mediumspringgreen solid;
+    transition: border 0.5s;
+}
+*/
 
 .post-content {
     grid-row: 2;
