@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>500 - INTERNAL SERVER ERROR</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="error-page">
+    <section class="error" id="500">
+        <h1>500</h1>
+        <h4>Something went wrong on server side<br>send me feedback on github</h4>
+        <a href="{{ url_for('index') }}">
+            <button>GO BACK HOME</button>
+        </a>
+    </section>
+</body>
+</html>
