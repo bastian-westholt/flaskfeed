@@ -25,5 +25,17 @@ def add():
 
     return render_template('add.html')
 
+@app.route('/delete/<int:post_id>')
+def delete(post_id):
+    for i, post in enumerate(blog_posts):
+        if post['id'] == post_id:
+            blog_posts.remove(blog_posts[i])
+            with open('data/storage.json', 'w') as writer:
+                writer.write(json.dumps(blog_posts))
+
+            return redirect(url_for('index'))
+
+    return f'Post with that id: {post_id}, do not exist.'
+
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5001, debug=True)

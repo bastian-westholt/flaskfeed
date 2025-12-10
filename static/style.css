@@ -22,13 +22,19 @@ header {
 
 header h1 {
     color: mediumspringgreen;
+    font-size: 2rem;
+    font-weight: 1000;
     /* text-shadow:
           0 0 10px rgba(0, 255, 162, 0.4);
         animation: glow 2s ease-in-out infinite;*/
 
 }
 
-header button {
+/*header h1 #logo-split {
+    font-weight: 300;
+}*/
+
+button {
     max-width: 200px;
     width: auto;
     background-color: mediumspringgreen;
@@ -40,11 +46,38 @@ header button {
     border-radius: 10px;
 }
 
-header button:hover {
+button:hover {
     background-color: rgb(255, 156, 242);
 }
 
+button .material-symbols-outlined {
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+}
+
+div.post-ui form {
+    display: flex;
+    position: relative;
+    justify-content: flex-end;
+}
+
+div.post-ui form button {
+    position: absolute;
+    background: none;
+    color: mediumspringgreen;
+    font-weight: 700;
+}
+
+div.post-ui form button:hover {
+    color: #ff9cf2;
+    transition: color 0.3s;
+}
+
 .post {
+    display: flex;
+    justify-content: space-between;
     max-width: 800px;
     max-height: 350px;
     width: 100%;
@@ -90,9 +123,9 @@ label {
 }
 
 input[type=text] {
-    border: 1px mediumspringgreen solid;
+    background: linear-gradient(75deg , #292929 35%, mediumspringgreen 1000%) fixed;
+    border: 0 mediumspringgreen solid;
     border-radius: 10px;
-    background-color: #292929;
     font-family: "JetBrains Mono", sans-serif;
     font-size: 1rem;
     color: white;
@@ -105,9 +138,9 @@ textarea#content {
     width: 100%;
     height: 20vh;
     resize: vertical;
-    border: 1px mediumspringgreen solid;
+    background: linear-gradient(75deg , #292929 35%, mediumspringgreen 1000%) fixed;
+    border: 0 mediumspringgreen solid;
     border-radius: 10px;
-    background-color: #292929;
     font-family: "JetBrains Mono", sans-serif;
     font-size: 1rem;
     color: white;
