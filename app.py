@@ -21,8 +21,9 @@ def add():
         title = request.form.get('title')
         content = request.form.get('content')
 
+        new_id = max([post['id'] for post in blog_posts], default=0) + 1
         blog_posts.append({
-            "id": len(blog_posts) + 1,
+            "id": new_id,
             "author": author,
             "title": title,
             "content": content
@@ -84,6 +85,8 @@ def like(post_id):
     current_post = fetch_post_by_id(post_id)
 
     if request.method == 'POST':
+        if 'likes' not in current_post:
+            current_post['likes'] = 0
         current_post['likes'] += 1
 
         with open('data/storage.json', 'w') as writer:
@@ -107,4 +110,4 @@ def internal_server_error(error):
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5001, debug=False)
+    app.run(host="0.0.0.0", port=5002, debug=False)
